@@ -1,0 +1,11 @@
+﻿@page "/demo1"
+<PageTitle>Demo1 : Bindings</PageTitle>
+<h3>Demo1</h3>
+
+<p>@MyProp</p>
+<p><input @bind-value="MyProp" /></p>
+
+@code {
+    public string MyProp { get; set; } = "bidule";
+}
+ 

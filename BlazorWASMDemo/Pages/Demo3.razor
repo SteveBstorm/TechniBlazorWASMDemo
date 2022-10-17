@@ -1,0 +1,24 @@
+﻿@page "/demo3"
+<h3>Formulaire</h3>
+@inherits Demo3Base
+
+<EditForm class="form" Model="MyNewGame" OnValidSubmit="ValidSubmit">
+    <DataAnnotationsValidator />
+    <div class="form-control">
+        Nom : <InputText @bind-Value="MyNewGame.Name" />
+    </div>
+    <div class="form-control">
+        Genre : <InputText @bind-Value="MyNewGame.Genre" />
+    </div>
+    <div class="form-control">
+        Description : <InputText @bind-Value="MyNewGame.Description" />
+    </div>
+    <button class="btn btn-danger">Valider</button>
+    <ValidationSummary />
+</EditForm>
+
+<hr />
+@if(status) {
+    <p>Valeur entrée dans le formulaire : </p>
+    <p>@String.Format($"{MyNewGame.Name} : {MyNewGame.Genre}")</p>
+}
