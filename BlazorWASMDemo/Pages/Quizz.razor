@@ -1,0 +1,25 @@
+﻿@page "/quizz"
+<h3>Quizz</h3>
+
+@if(Username is null) {
+    <p>Quel est votre nom ? <input @bind-value="Username" /></p>
+}
+else {
+    <h3>Bonjour @Username, @InfoPos</h3>
+    <p>@CurrentQuestion</p>
+
+    @if(pos > Questions.Count()){
+        <ul>
+            @foreach (string item in Answers)
+           {
+             <li>@item</li>  
+           }
+        </ul>
+    }
+    else {
+        <button @onclick='() => Answer("oui")' class="btn btn-outline-warning">Oui</button>
+        <button @onclick='() => Answer("non")' class="btn btn-outline-dark">Non</button>
+    }
+
+}
+

@@ -7,5 +7,18 @@
 Welcome to your new app.
 
 <p>Salut les gars !</p>
+<button @onclick="Redirect">click ici</button>
 
+<NavLink href="demo4">lien vers demo4</NavLink>
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+<Reusable Valeur='42'></Reusable>
+
+@code{
+    [Inject]
+    private NavigationManager _nm { get; set; }
+
+    public void Redirect(){
+        _nm.NavigateTo("demo4");
+    }
+}

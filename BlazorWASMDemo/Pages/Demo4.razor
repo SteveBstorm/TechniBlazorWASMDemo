@@ -1,0 +1,37 @@
+﻿@page "/demo4"
+@using BlazorWASMDemo.Models
+@using BlazorWASMDemo.Services
+<h3>Demo4</h3>
+
+@*<ul>
+@foreach(Jeu g in MyList) {
+   <li>@g.Name</li>
+}
+</ul>*@
+
+<div style="height: 350px; overflow-y: scroll;">
+    <ul>
+        <Virtualize Items="MyList" Context="g">
+            <li>@g.Name</li>
+        </Virtualize>
+    </ul>
+</div>
+@code {
+
+    [Inject]
+    private GameService _gs{ get; set; }
+
+    public List<Jeu> MyList { get; set; }
+
+    protected override void OnInitialized()
+    {
+        for(int i = 0; i < 200; i++){
+            _gs.Add(
+                new Jeu {
+                    Id = i, Name = "Jeu "+i
+                }
+            );
+        }
+            MyList = _gs.GetAll();
+    }
+}
