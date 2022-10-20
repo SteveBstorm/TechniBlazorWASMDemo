@@ -1,0 +1,10 @@
+﻿@page "/demo6"
+@using BlazorWASMDemo.Models
+@inherits Demo6Base
+<h3>Demo6</h3>
+@foreach(Jeu j in liste){
+    <p>@j.Name : @j.Genre</p>
+}
+@code {
+
+}

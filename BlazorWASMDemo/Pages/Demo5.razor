@@ -1,0 +1,15 @@
+﻿@page "/demo5"
+
+<h3>Demo5</h3>
+
+@code {
+    [Inject]
+    public IJSRuntime _js { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await _js.InvokeVoidAsync("alert", "C'est une alert js !");
+        await _js.InvokeVoidAsync("localStorage.setItem", "clé", "valeur");
+        await _js.InvokeVoidAsync("mafonction");
+    }
+}
